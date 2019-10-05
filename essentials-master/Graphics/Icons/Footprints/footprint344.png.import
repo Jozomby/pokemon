@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/footprint344.png-c4f1fc8bfd0d7a51dff8cfe8cc58dd8b.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://essentials-master/Graphics/Icons/Footprints/footprint344.png"
+dest_files=[ "res://.import/footprint344.png-c4f1fc8bfd0d7a51dff8cfe8cc58dd8b.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

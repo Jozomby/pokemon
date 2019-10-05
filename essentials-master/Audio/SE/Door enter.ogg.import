@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Door enter.ogg-0ca91ad7eb813db7eb9a7f5620021574.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Door enter.ogg"
+dest_files=[ "res://.import/Door enter.ogg-0ca91ad7eb813db7eb9a7f5620021574.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

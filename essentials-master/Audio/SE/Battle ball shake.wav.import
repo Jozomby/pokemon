@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Battle ball shake.wav-36041ed3f4346800b6ac469e669784b0.sample"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Battle ball shake.wav"
+dest_files=[ "res://.import/Battle ball shake.wav-36041ed3f4346800b6ac469e669784b0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

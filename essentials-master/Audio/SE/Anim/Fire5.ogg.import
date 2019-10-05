@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fire5.ogg-89bbae8cd3d9302cfd8fab2540dbf631.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Fire5.ogg"
+dest_files=[ "res://.import/Fire5.ogg-89bbae8cd3d9302cfd8fab2540dbf631.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

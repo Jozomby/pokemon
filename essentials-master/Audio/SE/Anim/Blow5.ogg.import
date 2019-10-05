@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Blow5.ogg-a1898f9641f6fb15af1ec1b5167e867b.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Blow5.ogg"
+dest_files=[ "res://.import/Blow5.ogg-a1898f9641f6fb15af1ec1b5167e867b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

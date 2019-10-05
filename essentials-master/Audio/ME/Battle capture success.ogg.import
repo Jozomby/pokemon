@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battle capture success.ogg-0fa3f778c5eb3a6beaf441bbd760fd6a.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/ME/Battle capture success.ogg"
+dest_files=[ "res://.import/Battle capture success.ogg-0fa3f778c5eb3a6beaf441bbd760fd6a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

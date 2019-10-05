@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mining item get.wav-fb226ae69a747b27a5b332ab790d70d3.sample"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Mining item get.wav"
+dest_files=[ "res://.import/Mining item get.wav-fb226ae69a747b27a5b332ab790d70d3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

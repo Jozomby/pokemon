@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/throw.ogg-3092d76d2848a3c631da6b8c89387e54.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/throw.ogg"
+dest_files=[ "res://.import/throw.ogg-3092d76d2848a3c631da6b8c89387e54.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

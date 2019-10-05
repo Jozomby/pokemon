@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battle victory wild.ogg-d8740ac283ecb23e49e255e62873a18b.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/ME/Battle victory wild.ogg"
+dest_files=[ "res://.import/Battle victory wild.ogg-d8740ac283ecb23e49e255e62873a18b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

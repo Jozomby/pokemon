@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wind5.ogg-4f8e7041d02e50a6f7a11e671eb01fac.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Wind5.ogg"
+dest_files=[ "res://.import/Wind5.ogg-4f8e7041d02e50a6f7a11e671eb01fac.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Blow6.ogg-965dc68b465f15bedc196f550e6a4d82.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Blow6.ogg"
+dest_files=[ "res://.import/Blow6.ogg-965dc68b465f15bedc196f550e6a4d82.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

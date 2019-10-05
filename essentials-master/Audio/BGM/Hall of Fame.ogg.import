@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hall of Fame.ogg-b9b0597c3b1ab4986971ff8feacc172f.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/BGM/Hall of Fame.ogg"
+dest_files=[ "res://.import/Hall of Fame.ogg-b9b0597c3b1ab4986971ff8feacc172f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

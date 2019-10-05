@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/559.png-959739cfba404a4b880de8c14ca4b77e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://essentials-master/Graphics/Battlers/559.png"
+dest_files=[ "res://.import/559.png-959739cfba404a4b880de8c14ca4b77e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

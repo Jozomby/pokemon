@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Player bump.ogg-0d6ae1d30abebd91b485b8a5f7c9f780.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Player bump.ogg"
+dest_files=[ "res://.import/Player bump.ogg-0d6ae1d30abebd91b485b8a5f7c9f780.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

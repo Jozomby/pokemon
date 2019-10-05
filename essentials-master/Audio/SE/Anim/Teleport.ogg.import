@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Teleport.ogg-12aeb66385f813e7fd823541994f20f6.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Teleport.ogg"
+dest_files=[ "res://.import/Teleport.ogg-12aeb66385f813e7fd823541994f20f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

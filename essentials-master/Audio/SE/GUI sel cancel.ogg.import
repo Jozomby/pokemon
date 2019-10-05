@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GUI sel cancel.ogg-34698ca9ba61583644e6fce70db6072e.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/GUI sel cancel.ogg"
+dest_files=[ "res://.import/GUI sel cancel.ogg-34698ca9ba61583644e6fce70db6072e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

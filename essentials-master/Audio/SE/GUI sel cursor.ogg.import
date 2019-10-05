@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GUI sel cursor.ogg-0822fdd73289b3746561eee81a451817.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/GUI sel cursor.ogg"
+dest_files=[ "res://.import/GUI sel cursor.ogg-0822fdd73289b3746561eee81a451817.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

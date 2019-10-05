@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mining cursor.wav-821b668c374707ea73a93c73bb4ba649.sample"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Mining cursor.wav"
+dest_files=[ "res://.import/Mining cursor.wav-821b668c374707ea73a93c73bb4ba649.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

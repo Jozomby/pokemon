@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Explosion1.ogg-03b851e845593b9b780f772833323cbe.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Explosion1.ogg"
+dest_files=[ "res://.import/Explosion1.ogg-03b851e845593b9b780f772833323cbe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

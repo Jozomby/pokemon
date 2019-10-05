@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/decrease.ogg-5ac30f677f42be94a8375ee95d5db103.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/decrease.ogg"
+dest_files=[ "res://.import/decrease.ogg-5ac30f677f42be94a8375ee95d5db103.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

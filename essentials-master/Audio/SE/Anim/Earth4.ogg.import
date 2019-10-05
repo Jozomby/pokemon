@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Earth4.ogg-17703b32fa9dc6ea8556e6f9f3b0b9bc.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Earth4.ogg"
+dest_files=[ "res://.import/Earth4.ogg-17703b32fa9dc6ea8556e6f9f3b0b9bc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

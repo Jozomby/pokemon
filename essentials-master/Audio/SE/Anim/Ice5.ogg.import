@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ice5.ogg-2919b3ccea3ac192ee8fe3cfc26d6a21.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Ice5.ogg"
+dest_files=[ "res://.import/Ice5.ogg-2919b3ccea3ac192ee8fe3cfc26d6a21.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

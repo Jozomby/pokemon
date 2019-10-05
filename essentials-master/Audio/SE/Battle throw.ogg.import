@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battle throw.ogg-7ea5856c1fe97a14accc34e9def85764.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Battle throw.ogg"
+dest_files=[ "res://.import/Battle throw.ogg-7ea5856c1fe97a14accc34e9def85764.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

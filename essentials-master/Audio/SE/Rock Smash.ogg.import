@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rock Smash.ogg-4516fe3aec95cae1300d858877b850f6.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Rock Smash.ogg"
+dest_files=[ "res://.import/Rock Smash.ogg-4516fe3aec95cae1300d858877b850f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

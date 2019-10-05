@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/icon603.png-e4a418739b4550a404a8f17ae46d6def.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://essentials-master/Graphics/Icons/icon603.png"
+dest_files=[ "res://.import/icon603.png-e4a418739b4550a404a8f17ae46d6def.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

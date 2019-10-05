@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Slash3.ogg-b36e3dfb38435d21ae64515fdc5aef13.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Slash3.ogg"
+dest_files=[ "res://.import/Slash3.ogg-b36e3dfb38435d21ae64515fdc5aef13.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

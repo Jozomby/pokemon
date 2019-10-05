@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bow1.ogg-314ec40326f4b6df5dae9d2eba64a1ea.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Bow1.ogg"
+dest_files=[ "res://.import/Bow1.ogg-314ec40326f4b6df5dae9d2eba64a1ea.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

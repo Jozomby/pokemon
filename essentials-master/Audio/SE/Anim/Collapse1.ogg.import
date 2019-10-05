@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Collapse1.ogg-3a52398e7e9c888e1732bb1acdf909e0.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Collapse1.ogg"
+dest_files=[ "res://.import/Collapse1.ogg-3a52398e7e9c888e1732bb1acdf909e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

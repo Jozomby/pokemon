@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/normaldamage.ogg-817b7b2c4ddddfd8d5f7a45d612ba2e9.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/normaldamage.ogg"
+dest_files=[ "res://.import/normaldamage.ogg-817b7b2c4ddddfd8d5f7a45d612ba2e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

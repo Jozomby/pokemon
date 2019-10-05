@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fury Swipes.ogg-f2d545983e93f672e0ad48c3e868e03d.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Fury Swipes.ogg"
+dest_files=[ "res://.import/Fury Swipes.ogg-f2d545983e93f672e0ad48c3e868e03d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

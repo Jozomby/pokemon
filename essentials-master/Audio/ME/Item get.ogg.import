@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Item get.ogg-96c00c5b8af9547a218e533e611d9b3f.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/ME/Item get.ogg"
+dest_files=[ "res://.import/Item get.ogg-96c00c5b8af9547a218e533e611d9b3f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

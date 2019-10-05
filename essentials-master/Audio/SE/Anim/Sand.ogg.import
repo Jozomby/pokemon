@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sand.ogg-39ae8c2b236c10363f42a5d76f5f9e9d.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Sand.ogg"
+dest_files=[ "res://.import/Sand.ogg-39ae8c2b236c10363f42a5d76f5f9e9d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

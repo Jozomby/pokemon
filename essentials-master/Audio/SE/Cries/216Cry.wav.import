@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/216Cry.wav-954f5474ffe92b62f852aec1845777d3.sample"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Cries/216Cry.wav"
+dest_files=[ "res://.import/216Cry.wav-954f5474ffe92b62f852aec1845777d3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

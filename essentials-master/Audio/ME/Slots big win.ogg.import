@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Slots big win.ogg-280fa77405e0156bb777a440c3f48cac.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/ME/Slots big win.ogg"
+dest_files=[ "res://.import/Slots big win.ogg-280fa77405e0156bb777a440c3f48cac.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

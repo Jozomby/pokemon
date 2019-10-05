@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Slash8.ogg-35663b2c1ba58b4a1caac18a1aa4d97a.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Slash8.ogg"
+dest_files=[ "res://.import/Slash8.ogg-35663b2c1ba58b4a1caac18a1aa4d97a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

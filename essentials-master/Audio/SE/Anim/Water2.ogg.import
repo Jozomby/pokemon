@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Water2.ogg-0c6cc812174f0b7cbaecc75083c281ff.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Water2.ogg"
+dest_files=[ "res://.import/Water2.ogg-0c6cc812174f0b7cbaecc75083c281ff.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

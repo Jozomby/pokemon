@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Evolution start.ogg-67e836a2ef984d2aa0c823907b96e53f.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/ME/Evolution start.ogg"
+dest_files=[ "res://.import/Evolution start.ogg-67e836a2ef984d2aa0c823907b96e53f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

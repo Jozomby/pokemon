@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sing.ogg-7ce7505cc1b3b8a887aeef1737bbb9fd.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Sing.ogg"
+dest_files=[ "res://.import/Sing.ogg-7ce7505cc1b3b8a887aeef1737bbb9fd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

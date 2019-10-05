@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Absorb2.ogg-c512af6a74b3b50dbfd4e90f85cda9c0.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Absorb2.ogg"
+dest_files=[ "res://.import/Absorb2.ogg-c512af6a74b3b50dbfd4e90f85cda9c0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

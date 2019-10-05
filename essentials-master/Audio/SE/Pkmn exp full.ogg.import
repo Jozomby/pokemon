@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pkmn exp full.ogg-2dbbbbc51baf3a39094d0a04b68dd1aa.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Pkmn exp full.ogg"
+dest_files=[ "res://.import/Pkmn exp full.ogg-2dbbbbc51baf3a39094d0a04b68dd1aa.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

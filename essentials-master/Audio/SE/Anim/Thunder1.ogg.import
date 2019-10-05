@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Thunder1.ogg-04c67f3d4a433ab77b3a1a923dc581f0.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Anim/Thunder1.ogg"
+dest_files=[ "res://.import/Thunder1.ogg-04c67f3d4a433ab77b3a1a923dc581f0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

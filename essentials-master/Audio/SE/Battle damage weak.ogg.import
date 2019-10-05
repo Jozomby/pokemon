@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battle damage weak.ogg-33a6ade6632afdff5a73032c06be6112.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Battle damage weak.ogg"
+dest_files=[ "res://.import/Battle damage weak.ogg-33a6ade6632afdff5a73032c06be6112.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

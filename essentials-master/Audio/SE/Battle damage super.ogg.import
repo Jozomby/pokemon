@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Battle damage super.ogg-49a0fb09a5c3775aef7e222832f9f1e1.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Battle damage super.ogg"
+dest_files=[ "res://.import/Battle damage super.ogg-49a0fb09a5c3775aef7e222832f9f1e1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

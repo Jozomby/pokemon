@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vs flash.ogg-24f89f326e7887c902a08104700274da.oggstr"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Vs flash.ogg"
+dest_files=[ "res://.import/Vs flash.ogg-24f89f326e7887c902a08104700274da.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

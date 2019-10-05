@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Voltorb Flip tile.wav-f7992f434b1dd02d89a0622e37a250ff.sample"
+
+[deps]
+
+source_file="res://essentials-master/Audio/SE/Voltorb Flip tile.wav"
+dest_files=[ "res://.import/Voltorb Flip tile.wav-f7992f434b1dd02d89a0622e37a250ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
