@@ -61,4 +61,3 @@ func stop_player():
 		$Sprite/AnimationPlayer.play("stopUp")
 	velocity.y = 0
 	velocity.x = 0
-
