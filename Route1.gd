@@ -24,6 +24,7 @@ var available_pokemon = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.disable_light()
 	for child in get_children():
 		if child.is_in_group("encounter"):
 			child.connect("encounter", self, "handle_encounter")

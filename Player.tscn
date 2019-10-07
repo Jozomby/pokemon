@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://essentials-master/Graphics/Characters/trchar000.png" type="Texture" id=2]
+[ext_resource path="res://lights/light.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=6]
 resource_name = "stopDown"
@@ -158,3 +159,11 @@ anims/walkUp = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.59259, 13.3334 )
 shape = SubResource( 5 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 3 )
+shadow_enabled = true
+shadow_gradient_length = 5.0
+shadow_filter = 5
+shadow_filter_smooth = 22.0

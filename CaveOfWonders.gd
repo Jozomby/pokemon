@@ -7,6 +7,7 @@ signal map_transition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.enable_light()
 	for child in get_children():
 		if child.is_in_group("encounter"):
 			child.connect("encounter", self, "handle_encounter")

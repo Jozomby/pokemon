@@ -36,7 +36,6 @@ func _process(delta):
 	var velocityValue = velocity.normalized() * speed
 	move_and_slide(velocityValue)
 	
-	
 ##### This is the grid-snapping control. It's not working well and is slowing down development, so I'm removing for now.
 #	# Calculate the current grid position, the target grid position, and
 #	# don't stop moving until the character is in the target grid position
@@ -79,3 +78,7 @@ func stop_player():
 	velocity.y = 0
 	velocity.x = 0
 
+func disable_light():
+	$Light2D.enabled = false
+func enable_light():
+	$Light2D.enabled = true
