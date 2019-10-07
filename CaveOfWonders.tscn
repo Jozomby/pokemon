@@ -34,11 +34,11 @@ format = 1
 tile_data = PoolIntArray( 655366, 18, 0 )
 
 [node name="Route1Entrance" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Route1Entrance"]
 position = Vector2( 48.642, 495.901 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 [connection signal="body_entered" from="Route1Entrance" to="." method="_on_Route1Entrance_body_entered"]

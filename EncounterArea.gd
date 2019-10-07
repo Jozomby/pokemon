@@ -1,5 +1,5 @@
 extends Node2D
-signal map_transition
+signal encounter
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -7,9 +7,6 @@ signal map_transition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for child in get_children():
-		if child.is_in_group("encounter"):
-			child.connect("encounter", self, "handle_encounter")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +14,10 @@ func _ready():
 #	pass
 
 
-func _on_Route1Entrance_body_entered(body):
-	if (body.name == "Player"):
-		emit_signal("map_transition", "Route1")
+func _on_Area2D_body_entered(body):
+	if body.name == "Player":
+		#randomize()
+		var encounter_roll = randi()%100
+		# Encounter rate is temporarily set to 15 rather than 7 for testing purposes
+		if encounter_roll < 15:
+			emit_signal("encounter")
