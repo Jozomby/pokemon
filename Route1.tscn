@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Route1.gd" type="Script" id=1]
 [ext_resource path="res://Outside.tres" type="TileSet" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://EncounterArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.7811, 15.7819 )
@@ -24,11 +25,208 @@ collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 327682, 6, 0, 327684, 6, 0, 327686, 6, 0, 327692, 6, 0, 327694, 6, 0, 720912, 10, 0, 720913, 11, 0, 720914, 11, 0, 720915, 11, 0, 1048578, 5, 0, 1048580, 5, 0, 1048582, 5, 0, 1048584, 5, 0, 1048586, 5, 0, 1048588, 5, 0, 1048590, 5, 0, 1048592, 5, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="EncounterArea" parent="." instance=ExtResource( 3 )]
+
+[node name="EncounterArea3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 543.556, 223.556 )
+
+[node name="EncounterArea43" parent="." instance=ExtResource( 3 )]
+position = Vector2( 542.222, 189.333 )
+
+[node name="EncounterArea44" parent="." instance=ExtResource( 3 )]
+position = Vector2( 543.556, 157.333 )
+
+[node name="EncounterArea45" parent="." instance=ExtResource( 3 )]
+position = Vector2( 541.778, 124.889 )
+
+[node name="EncounterArea46" parent="." instance=ExtResource( 3 )]
+position = Vector2( 543.556, 94.2222 )
+
+[node name="EncounterArea47" parent="." instance=ExtResource( 3 )]
+position = Vector2( 543.111, 60.4445 )
+
+[node name="EncounterArea48" parent="." instance=ExtResource( 3 )]
+position = Vector2( 542.667, 29.3333 )
+
+[node name="EncounterArea49" parent="." instance=ExtResource( 3 )]
+position = Vector2( 511.556, 159.111 )
+
+[node name="EncounterArea50" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512.445, 124.444 )
+
+[node name="EncounterArea51" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510.667, 94.2222 )
+
+[node name="EncounterArea52" parent="." instance=ExtResource( 3 )]
+position = Vector2( 511.556, 63.1111 )
+
+[node name="EncounterArea53" parent="." instance=ExtResource( 3 )]
+position = Vector2( 511.556, 31.1111 )
+
+[node name="EncounterArea54" parent="." instance=ExtResource( 3 )]
+position = Vector2( 479.556, 62.6667 )
+
+[node name="EncounterArea55" parent="." instance=ExtResource( 3 )]
+position = Vector2( 479.111, 29.3333 )
+
+[node name="EncounterArea56" parent="." instance=ExtResource( 3 )]
+position = Vector2( 447.111, 62.2222 )
+
+[node name="EncounterArea57" parent="." instance=ExtResource( 3 )]
+position = Vector2( 446.222, 28.4445 )
+
+[node name="EncounterArea58" parent="." instance=ExtResource( 3 )]
+position = Vector2( 415.556, 30.6667 )
+
+[node name="EncounterArea59" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 29.7778 )
+
+[node name="EncounterArea60" parent="." instance=ExtResource( 3 )]
+position = Vector2( 287.111, 62.6667 )
+
+[node name="EncounterArea61" parent="." instance=ExtResource( 3 )]
+position = Vector2( 288, 30.6667 )
+
+[node name="EncounterArea62" parent="." instance=ExtResource( 3 )]
+position = Vector2( 254.667, 31.1111 )
+
+[node name="EncounterArea63" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256.444, 63.5555 )
+
+[node name="EncounterArea64" parent="." instance=ExtResource( 3 )]
+position = Vector2( 255.111, 97.3333 )
+
+[node name="EncounterArea65" parent="." instance=ExtResource( 3 )]
+position = Vector2( 223.556, 96 )
+
+[node name="EncounterArea66" parent="." instance=ExtResource( 3 )]
+position = Vector2( 220.889, 62.6667 )
+
+[node name="EncounterArea67" parent="." instance=ExtResource( 3 )]
+position = Vector2( 223.111, 30.6667 )
+
+[node name="EncounterArea18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 191.111, 95.5556 )
+
+[node name="EncounterArea19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192.889, 63.1111 )
+
+[node name="EncounterArea20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 30.6667 )
+
+[node name="EncounterArea21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 159.111, 93.7778 )
+
+[node name="EncounterArea22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 159.111, 60.8889 )
+
+[node name="EncounterArea23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 158.667, 28 )
+
+[node name="EncounterArea24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 127.556, 94.2222 )
+
+[node name="EncounterArea25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128.444, 60.8889 )
+
+[node name="EncounterArea26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96.8889, 63.1111 )
+
+[node name="EncounterArea27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 479.111 )
+
+[node name="EncounterArea28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 288.444, 479.111 )
+
+[node name="EncounterArea29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 351.556, 447.556 )
+
+[node name="EncounterArea30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 318.667, 448.444 )
+
+[node name="EncounterArea31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 286.667, 445.778 )
+
+[node name="EncounterArea32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256.889, 447.556 )
+
+[node name="EncounterArea33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224, 448 )
+
+[node name="EncounterArea34" parent="." instance=ExtResource( 3 )]
+position = Vector2( 193.333, 447.111 )
+
+[node name="EncounterArea35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 350.222, 412.889 )
+
+[node name="EncounterArea36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320.889, 415.556 )
+
+[node name="EncounterArea37" parent="." instance=ExtResource( 3 )]
+position = Vector2( 286.667, 414.222 )
+
+[node name="EncounterArea38" parent="." instance=ExtResource( 3 )]
+position = Vector2( 254.222, 413.333 )
+
+[node name="EncounterArea39" parent="." instance=ExtResource( 3 )]
+position = Vector2( 222.222, 412.889 )
+
+[node name="EncounterArea40" parent="." instance=ExtResource( 3 )]
+position = Vector2( 191.556, 412.889 )
+
+[node name="EncounterArea41" parent="." instance=ExtResource( 3 )]
+position = Vector2( 159.111, 416.889 )
+
+[node name="EncounterArea42" parent="." instance=ExtResource( 3 )]
+position = Vector2( 126.667, 416.444 )
+
+[node name="EncounterArea4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 318.667, 385.778 )
+
+[node name="EncounterArea5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 284.444, 384 )
+
+[node name="EncounterArea6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 255.556, 383.111 )
+
+[node name="EncounterArea7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 222.222, 384 )
+
+[node name="EncounterArea8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 191.556, 383.111 )
+
+[node name="EncounterArea9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 384 )
+
+[node name="EncounterArea10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128.889, 385.778 )
+
+[node name="EncounterArea11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 94.2222, 382.222 )
+
+[node name="EncounterArea12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 319.556, 352.889 )
+
+[node name="EncounterArea13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 287.111, 353.333 )
+
+[node name="EncounterArea14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 257.333, 352.889 )
+
+[node name="EncounterArea15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 223.556, 353.778 )
+
+[node name="EncounterArea16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 190.667, 352.444 )
+
+[node name="EncounterArea17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192.8, 320.267 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 494.667, 424.444 )
 
 [node name="CaveOfWondersEntrance" type="Area2D" parent="."]
-position = Vector2( 529.152, 432.214 )
+position = Vector2( 529.366, 431.951 )
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
