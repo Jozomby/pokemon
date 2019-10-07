@@ -6,7 +6,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.7811, 15.7819 )
+extents = Vector2( 16.7811, 27.7634 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -226,7 +226,7 @@ position = Vector2( 192.8, 320.267 )
 position = Vector2( 494.667, 424.444 )
 
 [node name="CaveOfWondersEntrance" type="Area2D" parent="."]
-position = Vector2( 529.366, 431.951 )
+position = Vector2( 528.643, 431.49 )
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true

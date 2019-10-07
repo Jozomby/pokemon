@@ -31,27 +31,32 @@ func _process(delta):
 			velocity.y = -1
 			velocity.x = 0
 			$Sprite/AnimationPlayer.play("walkUp")
-	
-	# Calculate the current grid position, the target grid position, and
-	# don't stop moving until the character is in the target grid position
-	var currentPosition = get_grid_position(position, Vector2(0,0))
-	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
-		if currentPosition == targetPosition:
-			moving = false
-		else: 
-			moving = true
-		# If the movement keys are still down, update the target position
-		targetPosition = get_grid_position(position, velocity)
-	else:
-		if currentPosition == targetPosition or get_slide_count() > 0:
+		else:
 			stop_player()
-	
-	
 	var velocityValue = velocity.normalized() * speed
 	move_and_slide(velocityValue)
+	
+	
+##### This is the grid-snapping control. It's not working well and is slowing down development, so I'm removing for now.
+#	# Calculate the current grid position, the target grid position, and
+#	# don't stop moving until the character is in the target grid position
+#	var currentPosition = get_grid_position(position, Vector2(0,0))
+#	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
+#		if currentPosition == targetPosition:
+#			moving = false
+#		else: 
+#			moving = true
+#		# If the movement keys are still down, update the target position
+#		targetPosition = get_grid_position(position, velocity)
+#	else:
+#		if currentPosition == targetPosition or get_slide_count() > 0:
+#			stop_player()
+#
+#	var velocityValue = velocity.normalized() * speed
+#	move_and_slide(velocityValue)
+	
 
 func get_grid_position(pos, vel):
-	print(vel.x > 0)
 	var targetPosition = Vector2()
 	if vel.x > 0:
 		targetPosition.x = (floor(pos.x / grid_size) + vel.x) * grid_size
