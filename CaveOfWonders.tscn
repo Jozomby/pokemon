@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://CaveOfWonders.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cave.tres" type="TileSet" id=3]
+[ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=4]
+[ext_resource path="res://addons/midi/icon.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.4107, 31.0845 )
@@ -82,4 +84,17 @@ occluder = SubResource( 5 )
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Shadows"]
 z_index = -1
 occluder = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GodotMIDIPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+file = "res://essentials-master/Audio/BGM/Cave.mid"
+playing = true
+loop = true
+soundfont = "res://pokemon_soundfont.sf2"
 [connection signal="body_entered" from="Route1Entrance" to="." method="_on_Route1Entrance_body_entered"]
