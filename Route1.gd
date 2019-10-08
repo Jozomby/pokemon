@@ -22,23 +22,18 @@ var available_pokemon = [
 	}
 ]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	print("IN READY FOR ROUTE 1")
 	$Player.disable_light()
 	for child in get_children():
 		if child.is_in_group("encounter"):
 			child.connect("encounter", self, "handle_encounter")
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_CaveOfWondersEntrance_body_entered(body):
 	if (body.name == "Player"):
 		emit_signal("map_transition", "CaveOfWonders")
 		
 func handle_encounter():
+	print("IN HANDLE ENCOUNTER")
 	var pokemon = Utils.generateEncounter(available_pokemon)
 	emit_signal("begin_encounter", pokemon, "Route1")
