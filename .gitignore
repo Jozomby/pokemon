@@ -1,6 +1,9 @@
 # Created by https://www.gitignore.io/api/godot
 # Edit at https://www.gitignore.io/?templates=godot
 
+
+.DS_Store
+essentials-master/Graphics/.DS_Store
 ### Godot ###
 
 # Godot-specific ignores
