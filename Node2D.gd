@@ -62,8 +62,11 @@ func _draw():
 	$CanvasLayer/OpposingName.text = opposing_pokemon["name"]
 	$CanvasLayer/ActiveLevel.text = str(active_pokemon["level"])
 	$CanvasLayer/OpposingLevel.text = str(opposing_pokemon["level"])
+	$CanvasLayer/MaxHp.text = str(active_pokemon["max_hp"])
 
 func _process(delta):
+	$CanvasLayer/CurrentHp.text = str(active_pokemon["current_hp"])
+	
 	var active_percent_hp = float(active_pokemon["current_hp"]) / active_pokemon["max_hp"]
 	var active_hp_frame = 0 if active_percent_hp > 0.5 else (1 if active_percent_hp > 0.2 else 2)
 	var active_pixel_offset = (96-(active_percent_hp * 96))/2
@@ -82,4 +85,5 @@ func _process(delta):
 	var experience_pixel_offset = (192-(percent_experience * 192))/2
 	$CanvasLayer/ExperienceBar.scale = Vector2(percent_experience, 1)
 	$CanvasLayer/ExperienceBar.position = Vector2(base_experience_bar_position.x - experience_pixel_offset, base_experience_bar_position.y)
+	
 	

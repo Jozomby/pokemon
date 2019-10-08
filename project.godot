@@ -24,10 +24,6 @@ config/icon="res://icon.png"
 window/size/width=512
 window/size/height=384
 
-[editor_plugins]
-
-enabled=PoolStringArray( "midi" )
-
 [layer_names]
 
 2d_physics/layer_1="Player"
