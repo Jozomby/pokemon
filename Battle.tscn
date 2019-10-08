@@ -1,12 +1,64 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
+[ext_resource path="res://essentials-master/Graphics/Pictures/Battle/databox_normal.png" type="Texture" id=2]
+[ext_resource path="res://essentials-master/Graphics/Pictures/Battle/databox_normal_foe.png" type="Texture" id=3]
+[ext_resource path="res://standard18font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://essentials-master/Graphics/Pictures/Battle/overlay_lv.png" type="Texture" id=5]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="ActivePosition2D" type="Position2D" parent="."]
-position = Vector2( 135.111, 282.667 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="OpposingPosition2D" type="Position2D" parent="."]
-position = Vector2( 467.556, 106.667 )
+[node name="ActiveOverlay" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 382, 240 )
+texture = ExtResource( 2 )
+
+[node name="OpposingOverlay" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 130, 40 )
+texture = ExtResource( 3 )
+
+[node name="ActiveName" type="Label" parent="CanvasLayer"]
+margin_left = 293.778
+margin_top = 210.556
+margin_right = 414.778
+margin_bottom = 230.556
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+uppercase = true
+
+[node name="ActiveLevelLabel" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 468, 220 )
+texture = ExtResource( 5 )
+
+[node name="ActiveLevel" type="Label" parent="CanvasLayer"]
+margin_left = 481.222
+margin_top = 211.444
+margin_right = 507.222
+margin_bottom = 231.444
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+uppercase = true
+
+[node name="OpposingName" type="Label" parent="CanvasLayer"]
+margin_left = 12.8889
+margin_top = 22.1111
+margin_right = 133.889
+margin_bottom = 42.1111
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+uppercase = true
+
+[node name="OpposingLevelLabel" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 192, 32 )
+texture = ExtResource( 5 )
+
+[node name="OpposingLevel" type="Label" parent="CanvasLayer"]
+margin_left = 205.111
+margin_top = 22.0
+margin_right = 231.111
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+uppercase = true
