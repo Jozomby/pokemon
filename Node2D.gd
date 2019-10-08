@@ -3,16 +3,18 @@ extends Node2D
 var active_pokemon = {
 	"id": 1,
 	"name": "Bulbasaur",
+	"gender": "male",
 	"max_hp": 32,
-	"current_hp": 30,
+	"current_hp": 29,
 	"level": 8,
 	"experience_needed": 120,
-	"experience": 64,
+	"experience_since_last_level": 90,
 	"shiny": true
 }
 var opposing_pokemon = {
 	"id": 16,
 	"name": "Pidgey",
+	"gender": "female",
 	"max_hp": 16,
 	"current_hp": 16,
 	"level": 4,
@@ -20,10 +22,15 @@ var opposing_pokemon = {
 }
 
 var location = "Field"
+var base_active_hp_bar_position
+var base_opposing_hp_bar_position
+var base_experience_bar_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	base_active_hp_bar_position = $CanvasLayer/ActiveHpBar.position
+	base_opposing_hp_bar_position = $CanvasLayer/OpposingHpBar.position
+	base_experience_bar_position = $CanvasLayer/ExperienceBar.position
 
 func _draw():
 	var background_sprite = Sprite.new()
@@ -55,3 +62,24 @@ func _draw():
 	$CanvasLayer/OpposingName.text = opposing_pokemon["name"]
 	$CanvasLayer/ActiveLevel.text = str(active_pokemon["level"])
 	$CanvasLayer/OpposingLevel.text = str(opposing_pokemon["level"])
+
+func _process(delta):
+	var active_percent_hp = float(active_pokemon["current_hp"]) / active_pokemon["max_hp"]
+	var active_hp_frame = 0 if active_percent_hp > 0.5 else (1 if active_percent_hp > 0.2 else 2)
+	var active_pixel_offset = (96-(active_percent_hp * 96))/2
+	$CanvasLayer/ActiveHpBar.frame = active_hp_frame
+	$CanvasLayer/ActiveHpBar.scale = Vector2(active_percent_hp, 1)
+	$CanvasLayer/ActiveHpBar.position = Vector2(base_active_hp_bar_position.x - active_pixel_offset, base_active_hp_bar_position.y)
+
+	var opposing_percent_hp = float(opposing_pokemon["current_hp"]) / opposing_pokemon["max_hp"]
+	var opposing_hp_frame = 0 if opposing_percent_hp > 0.5 else (1 if opposing_percent_hp > 0.2 else 2)
+	var opposing_pixel_offset = (96-(opposing_percent_hp * 96))/2
+	$CanvasLayer/OpposingHpBar.frame = opposing_hp_frame
+	$CanvasLayer/OpposingHpBar.scale = Vector2(opposing_percent_hp, 1)
+	$CanvasLayer/OpposingHpBar.position = Vector2(base_opposing_hp_bar_position.x - opposing_pixel_offset, base_opposing_hp_bar_position.y)
+	
+	var percent_experience = float(active_pokemon["experience_since_last_level"]) / active_pokemon["experience_needed"]
+	var experience_pixel_offset = (192-(percent_experience * 192))/2
+	$CanvasLayer/ExperienceBar.scale = Vector2(percent_experience, 1)
+	$CanvasLayer/ExperienceBar.position = Vector2(base_experience_bar_position.x - experience_pixel_offset, base_experience_bar_position.y)
+	
