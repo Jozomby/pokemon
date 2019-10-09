@@ -1,6 +1,7 @@
 extends Node2D
+signal map_transition
 
-var active_pokemon = {
+export var active_pokemon = {
 	"id": 1,
 	"name": "Bulbasaur",
 	"gender": "male",
@@ -11,7 +12,7 @@ var active_pokemon = {
 	"experience_since_last_level": 90,
 	"shiny": true
 }
-var opposing_pokemon = {
+export var opposing_pokemon = {
 	"id": 16,
 	"name": "Pidgey",
 	"gender": "female",
@@ -20,6 +21,9 @@ var opposing_pokemon = {
 	"level": 4,
 	"shiny": false
 }
+
+export var return_map = "Route1"
+export var return_position = Vector2(0,0)
 
 var location = "Field"
 var base_active_hp_bar_position
@@ -64,9 +68,12 @@ func _draw():
 	$CanvasLayer/OpposingLevel.text = str(opposing_pokemon["level"])
 	$CanvasLayer/MaxHp.text = str(active_pokemon["max_hp"])
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		emit_signal("map_transition", return_map, return_position)
+
 func _process(delta):
 	$CanvasLayer/CurrentHp.text = str(active_pokemon["current_hp"])
-	
 	var active_percent_hp = float(active_pokemon["current_hp"]) / active_pokemon["max_hp"]
 	var active_hp_frame = 0 if active_percent_hp > 0.5 else (1 if active_percent_hp > 0.2 else 2)
 	var active_pixel_offset = (96-(active_percent_hp * 96))/2

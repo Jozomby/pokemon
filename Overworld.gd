@@ -1,5 +1,8 @@
 extends Node2D
 
+var Utils = preload("utils.gd")
+
+var battle = preload("res://Battle.tscn");
 var map_map = {
 	"Default": preload("res://Route1.tscn"),
 	"Route1": preload("res://Route1.tscn"),
@@ -8,6 +11,27 @@ var map_map = {
 	
 var current_map = null
 
+var active_pokemon = {
+	"id": 1,
+	"name": "Bulbasaur",
+	"gender": "male",
+	"max_hp": 32,
+	"current_hp": 29,
+	"level": 8,
+	"experience_needed": 120,
+	"experience_since_last_level": 90,
+	"shiny": true
+}
+var opposing_pokemon = {
+	"id": 16,
+	"name": "Pidgey",
+	"gender": "female",
+	"max_hp": 16,
+	"current_hp": 16,
+	"level": 4,
+	"shiny": false
+}
+
 func _ready():
 	var defaultMap = map_map["Default"].instance()
 	add_child(defaultMap)
@@ -15,15 +39,30 @@ func _ready():
 	defaultMap.connect("map_transition", self, "handle_map_transition")
 	defaultMap.connect("begin_encounter", self, "handle_begin_encounter")
 	
-func handle_map_transition(targetMap):
+func handle_map_transition(targetMap, player_position):
 	remove_child(current_map)
 	current_map.queue_free()
 	var new_map = map_map[targetMap].instance()
+	new_map.player_position = player_position
 	add_child(new_map)
 	current_map = new_map
 	new_map.connect("map_transition", self, "handle_map_transition")
-	new_map.connect("encounter", self, "handle_encounter")
+	new_map.connect("begin_encounter", self, "handle_begin_encounter")
 
-func handle_begin_encounter(pokemon, return_map):
-	print("Encountering:")
-	print(pokemon)
+func handle_begin_encounter(pokemon, return_map, return_position):
+	call_deferred("_handle_begin_encounter", pokemon, return_map, return_position)
+	
+func _handle_begin_encounter(pokemon, return_map, return_position):
+	remove_child(current_map)
+	current_map.queue_free()
+	var encounter = battle.instance()
+	var wild_pokemon = Utils.generatePokemon(pokemon)
+	wild_pokemon.max_hp = wild_pokemon["stats"]["hp"]
+	wild_pokemon.current_hp = wild_pokemon["stats"]["hp"]
+	encounter.active_pokemon = active_pokemon
+	encounter.opposing_pokemon = wild_pokemon
+	encounter.return_map = return_map
+	encounter.return_position = return_position
+	encounter.connect("map_transition", self, "handle_map_transition")
+	current_map = encounter
+	add_child(encounter)
