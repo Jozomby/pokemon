@@ -39,16 +39,17 @@ func _ready():
 	defaultMap.connect("map_transition", self, "handle_map_transition")
 	defaultMap.connect("begin_encounter", self, "handle_begin_encounter")
 	
-func handle_map_transition(targetMap):
+func handle_map_transition(targetMap, player_position):
 	remove_child(current_map)
 	current_map.queue_free()
 	var new_map = map_map[targetMap].instance()
+	new_map.player_position = player_position
 	add_child(new_map)
 	current_map = new_map
 	new_map.connect("map_transition", self, "handle_map_transition")
-	new_map.connect("encounter", self, "handle_encounter")
+	new_map.connect("begin_encounter", self, "handle_begin_encounter")
 
-func handle_begin_encounter(pokemon, return_map):
+func handle_begin_encounter(pokemon, return_map, return_position):
 	remove_child(current_map)
 	current_map.queue_free()
 	var encounter = battle.instance()
@@ -58,6 +59,7 @@ func handle_begin_encounter(pokemon, return_map):
 	encounter.active_pokemon = active_pokemon
 	encounter.opposing_pokemon = wild_pokemon
 	encounter.return_map = return_map
+	encounter.return_position = return_position
 	encounter.connect("map_transition", self, "handle_map_transition")
 	current_map = encounter
 	add_child(encounter)

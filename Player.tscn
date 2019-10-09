@@ -4,7 +4,7 @@
 [ext_resource path="res://essentials-master/Graphics/Characters/trchar000.png" type="Texture" id=2]
 [ext_resource path="res://lights/light.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=5]
 resource_name = "stopDown"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 resource_name = "stopLeft"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 resource_name = "stopRight"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -49,8 +49,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "stopUp"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -64,7 +63,8 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
+resource_name = "walkDown"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -80,7 +80,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
+resource_name = "walkLeft"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -96,7 +97,8 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
+resource_name = "walkRight"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -112,7 +114,8 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
+resource_name = "walkUp"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -140,17 +143,16 @@ z_index = 1
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/stopDown = SubResource( 1 )
-anims/stopLeft = SubResource( 2 )
-anims/stopRight = SubResource( 3 )
-anims/stopUp = SubResource( 4 )
-anims/walkDown = SubResource( 5 )
-anims/walkLeft = SubResource( 6 )
-anims/walkRight = SubResource( 7 )
-anims/walkUp = SubResource( 8 )
+anims/stopDown = SubResource( 5 )
+anims/stopLeft = SubResource( 6 )
+anims/stopRight = SubResource( 7 )
+anims/stopUp = SubResource( 8 )
+anims/walkDown = SubResource( 1 )
+anims/walkLeft = SubResource( 2 )
+anims/walkRight = SubResource( 3 )
+anims/walkUp = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.59259, 13.3334 )

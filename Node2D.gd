@@ -23,7 +23,7 @@ export var opposing_pokemon = {
 }
 
 export var return_map = "Route1"
-export var return_pos = Vector2(0,0)
+export var return_position = Vector2(0,0)
 
 var location = "Field"
 var base_active_hp_bar_position
@@ -70,7 +70,7 @@ func _draw():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		emit_signal("map_transition", return_map)
+		emit_signal("map_transition", return_map, return_position)
 
 func _process(delta):
 	$CanvasLayer/CurrentHp.text = str(active_pokemon["current_hp"])
