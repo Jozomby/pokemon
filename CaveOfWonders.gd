@@ -1,7 +1,7 @@
 extends Node2D
 signal map_transition
 
-export var player_position = Vector2(80, 480)
+export var player_position = Vector2(64, 480)
 
 func _ready():
 	$Player.enable_light()
@@ -12,4 +12,4 @@ func _ready():
 
 func _on_Route1Entrance_body_entered(body):
 	if (body.name == "Player"):
-		emit_signal("map_transition", "Route1", Vector2(496, 416))
+		emit_signal("map_transition", "Route1", Vector2(480, 416))

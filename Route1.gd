@@ -3,7 +3,7 @@ signal map_transition
 signal begin_encounter
 
 var Utils = preload("utils.gd")
-export var player_position = Vector2(496, 416)
+export var player_position = Vector2(480, 416)
 
 var available_pokemon = [
 	{
@@ -32,8 +32,8 @@ func _ready():
 
 func _on_CaveOfWondersEntrance_body_entered(body):
 	if (body.name == "Player"):
-		emit_signal("map_transition", "CaveOfWonders", Vector2(80, 480))
-		
+		emit_signal("map_transition", "CaveOfWonders", Vector2(64, 480))
+
 func handle_encounter():
 	var pokemon = Utils.generateEncounter(available_pokemon)
-	emit_signal("begin_encounter", pokemon, "Route1", Vector2($Player.lastPositionOnGrid.x + 16, $Player.lastPositionOnGrid.y))
+	emit_signal("begin_encounter", pokemon, "Route1", $Player.lastPositionOnGrid)
