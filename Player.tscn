@@ -165,3 +165,6 @@ shadow_enabled = true
 shadow_gradient_length = 5.0
 shadow_filter = 5
 shadow_filter_smooth = 22.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

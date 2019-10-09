@@ -50,6 +50,9 @@ func handle_map_transition(targetMap, player_position):
 	new_map.connect("begin_encounter", self, "handle_begin_encounter")
 
 func handle_begin_encounter(pokemon, return_map, return_position):
+	call_deferred("_handle_begin_encounter", pokemon, return_map, return_position)
+	
+func _handle_begin_encounter(pokemon, return_map, return_position):
 	remove_child(current_map)
 	current_map.queue_free()
 	var encounter = battle.instance()
