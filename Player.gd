@@ -2,57 +2,74 @@ extends KinematicBody2D
 
 export var speed = 100
 export var grid_size = 32
-var screen_size
 var animation_frame = 0
 var targetPosition = Vector2()
+export var lastPositionOnGrid = Vector2()
+var currentVelocity = Vector2()
 var velocity = Vector2()
-var moving = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	screen_size = get_viewport_rect().size
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _draw():
+	targetPosition = get_grid_position(position, Vector2(0,0))
+	lastPositionOnGrid = get_grid_position(position, Vector2(0,0))
+
 func _process(delta):
-	# Only change velocity when the player stops moving.
-	if !moving:
-		if Input.is_action_pressed("ui_right"):
-			velocity.x = 1
-			velocity.y = 0
-			$Sprite/AnimationPlayer.play("walkRight")
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = -1
-			velocity.y = 0
-			$Sprite/AnimationPlayer.play("walkLeft")
-		elif Input.is_action_pressed("ui_down"):
-			velocity.y = 1
-			velocity.x = 0
-			$Sprite/AnimationPlayer.play("walkDown")
-		elif Input.is_action_pressed("ui_up"):
-			velocity.y = -1
-			velocity.x = 0
-			$Sprite/AnimationPlayer.play("walkUp")
+	var currentPosition = get_grid_position(position, Vector2(0,0))
+	var newTargetPosition = Vector2(0,0)
+	var input_pressed = false
+	if Input.is_action_pressed("ui_right"):
+		input_pressed = true
+		velocity.x = 1
+		velocity.y = 0
+		newTargetPosition.x = currentPosition.x + grid_size
+		newTargetPosition.y = currentPosition.y
+	elif Input.is_action_pressed("ui_left"):
+		input_pressed = true
+		velocity.x = -1
+		velocity.y = 0
+		newTargetPosition.x = currentPosition.x - grid_size
+		newTargetPosition.y = currentPosition.y
+	elif Input.is_action_pressed("ui_down"):
+		input_pressed = true
+		velocity.y = 1
+		velocity.x = 0
+		newTargetPosition.y = currentPosition.y + grid_size
+		newTargetPosition.x = currentPosition.x
+	elif Input.is_action_pressed("ui_up"):
+		input_pressed = true
+		velocity.y = -1
+		velocity.x = 0
+		newTargetPosition.y = currentPosition.y - grid_size
+		newTargetPosition.x = currentPosition.x
+	else:
+		input_pressed = false
+	if (currentPosition == targetPosition):
+		lastPositionOnGrid.x = currentPosition.x
+		lastPositionOnGrid.y = currentPosition.y
+		if input_pressed && self.get_slide_count() == 0:
+			targetPosition.x = newTargetPosition.x
+			targetPosition.y = newTargetPosition.y
+			currentVelocity.x = velocity.x
+			currentVelocity.y = velocity.y
 		else:
-			stop_player()
-	var velocityValue = velocity.normalized() * speed
+			currentVelocity.x = 0
+			currentVelocity.y = 0
+	if currentVelocity.x == 1:
+		$Sprite/AnimationPlayer.play("walkRight")
+	elif currentVelocity.x == -1:
+		$Sprite/AnimationPlayer.play("walkLeft")
+	elif currentVelocity.y == 1:
+		$Sprite/AnimationPlayer.play("walkDown")
+	elif currentVelocity.y == -1:
+		$Sprite/AnimationPlayer.play("walkUp")
+	else:
+		stop_player()
+	if self.get_slide_count() > 0 && currentPosition != targetPosition:
+		currentVelocity.x = currentVelocity.x * -1
+		currentVelocity.y = currentVelocity.y * -1
+		targetPosition.x = lastPositionOnGrid.x
+		targetPosition.y = lastPositionOnGrid.y
+	var velocityValue = currentVelocity.normalized() * speed
 	move_and_slide(velocityValue)
-	
-##### This is the grid-snapping control. It's not working well and is slowing down development, so I'm removing for now.
-#	# Calculate the current grid position, the target grid position, and
-#	# don't stop moving until the character is in the target grid position
-#	var currentPosition = get_grid_position(position, Vector2(0,0))
-#	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
-#		if currentPosition == targetPosition:
-#			moving = false
-#		else: 
-#			moving = true
-#		# If the movement keys are still down, update the target position
-#		targetPosition = get_grid_position(position, velocity)
-#	else:
-#		if currentPosition == targetPosition or get_slide_count() > 0:
-#			stop_player()
-#
-#	var velocityValue = velocity.normalized() * speed
-#	move_and_slide(velocityValue)
 	
 
 func get_grid_position(pos, vel):

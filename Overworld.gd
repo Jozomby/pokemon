@@ -40,6 +40,9 @@ func _ready():
 	defaultMap.connect("begin_encounter", self, "handle_begin_encounter")
 	
 func handle_map_transition(targetMap, player_position):
+	call_deferred("_handle_map_transition", targetMap, player_position)
+	
+func _handle_map_transition(targetMap, player_position):
 	remove_child(current_map)
 	current_map.queue_free()
 	var new_map = map_map[targetMap].instance()

@@ -243,7 +243,7 @@ position = Vector2( 190.667, 352.444 )
 position = Vector2( 192.8, 320.267 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 494.667, 424.444 )
+position = Vector2( 496, 432 )
 
 [node name="CaveOfWondersEntrance" type="Area2D" parent="."]
 position = Vector2( 528.643, 431.49 )
