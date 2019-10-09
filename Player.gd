@@ -3,10 +3,18 @@ extends KinematicBody2D
 export var speed = 100
 export var grid_size = 32
 var animation_frame = 0
+var screen_size
 var targetPosition = Vector2()
 export var lastPositionOnGrid = Vector2()
 var currentVelocity = Vector2()
 var velocity = Vector2()
+var moving = false
+var direction = "down"
+const MessageResource = preload("res://Message.tscn")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	screen_size = get_viewport_rect().size
 
 func _draw():
 	targetPosition = get_grid_position(position, Vector2(0,0))
@@ -22,24 +30,28 @@ func _process(delta):
 		velocity.y = 0
 		newTargetPosition.x = currentPosition.x + grid_size
 		newTargetPosition.y = currentPosition.y
+		direction = "right"
 	elif Input.is_action_pressed("ui_left"):
 		input_pressed = true
 		velocity.x = -1
 		velocity.y = 0
 		newTargetPosition.x = currentPosition.x - grid_size
 		newTargetPosition.y = currentPosition.y
+		direction = "left"
 	elif Input.is_action_pressed("ui_down"):
 		input_pressed = true
 		velocity.y = 1
 		velocity.x = 0
 		newTargetPosition.y = currentPosition.y + grid_size
 		newTargetPosition.x = currentPosition.x
+		direction = "down"
 	elif Input.is_action_pressed("ui_up"):
 		input_pressed = true
 		velocity.y = -1
 		velocity.x = 0
 		newTargetPosition.y = currentPosition.y - grid_size
 		newTargetPosition.x = currentPosition.x
+		direction = "up"
 	else:
 		input_pressed = false
 	if (currentPosition == targetPosition):
@@ -50,6 +62,7 @@ func _process(delta):
 			targetPosition.y = newTargetPosition.y
 			currentVelocity.x = velocity.x
 			currentVelocity.y = velocity.y
+
 		else:
 			currentVelocity.x = 0
 			currentVelocity.y = 0
@@ -99,3 +112,33 @@ func disable_light():
 	$Light2D.enabled = false
 func enable_light():
 	$Light2D.enabled = true
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+			if event.pressed and event.scancode == KEY_META:
+					var message = get_interaction_message()
+					if message == null:
+						return
+					var GrabbedInstance = MessageResource.instance()
+					GrabbedInstance.set_message(message)
+					var sceneNode = get_node('/root/Overworld')
+					sceneNode.add_child(GrabbedInstance)
+
+						
+func get_interaction_message():
+	var space_state = get_world_2d().direct_space_state
+	var direction_vector = Vector2.ZERO
+	if direction == "up":
+		direction_vector.y = -1
+	elif direction == "down":
+		direction_vector.y = 1
+	elif direction == "left":
+		direction_vector.x = -1
+	elif direction == "right":
+		direction_vector.x = 1
+	var result = space_state.intersect_ray(position, position + direction_vector * grid_size, [self])
+	if not result.get("collider") == null:
+		return result.collider.message
+	return null
+
+	

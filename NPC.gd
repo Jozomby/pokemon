@@ -7,6 +7,7 @@ var direction = "down"
 var frame_count = 0
 var moving = false
 var speed = 100
+export var message = "Good Umbreon-ing, my friend! I would have said Eevee-ning, but that would be too normal."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,3 +66,4 @@ func chooseDirection():
 	if random_dir < 75:
 		return "right"
 	return "up"
+
