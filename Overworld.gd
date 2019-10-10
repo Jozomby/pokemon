@@ -6,7 +6,8 @@ var battle = preload("res://Battle.tscn");
 var map_map = {
 	"Default": preload("res://Route1.tscn"),
 	"Route1": preload("res://Route1.tscn"),
-	"CaveOfWonders": preload("res://CaveOfWonders.tscn")
+	"CaveOfWonders": preload("res://CaveOfWonders.tscn"),
+	"Lighthouse": preload("res://Lighthouse.tscn")
 	}
 	
 var current_map = null

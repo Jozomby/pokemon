@@ -13,3 +13,7 @@ func _ready():
 func _on_Route1Entrance_body_entered(body):
 	if (body.name == "Player"):
 		emit_signal("map_transition", "Route1", Vector2(480, 416))
+
+func _on_Area2D_body_entered(body):
+	if (body.name == "Player"):
+		emit_signal("map_transition", "Lighthouse", Vector2(480, 416))
