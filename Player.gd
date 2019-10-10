@@ -8,7 +8,6 @@ var targetPosition = Vector2()
 export var lastPositionOnGrid = Vector2()
 var currentVelocity = Vector2()
 var velocity = Vector2()
-var moving = false
 var direction = "down"
 const MessageResource = preload("res://Message.tscn")
 
@@ -28,32 +27,30 @@ func _process(delta):
 		input_pressed = true
 		velocity.x = 1
 		velocity.y = 0
-		newTargetPosition.x = lastPositionOnGrid.x + grid_size
-		newTargetPosition.y = lastPositionOnGrid.y
+		newTargetPosition.x = targetPosition.x + grid_size
+		newTargetPosition.y = targetPosition.y
 		direction = "right"
 	elif Input.is_action_pressed("ui_left"):
 		input_pressed = true
 		velocity.x = -1
 		velocity.y = 0
-		newTargetPosition.x = lastPositionOnGrid.x - grid_size
-		newTargetPosition.y = lastPositionOnGrid.y
+		newTargetPosition.x = targetPosition.x - grid_size
+		newTargetPosition.y = targetPosition.y
 		direction = "left"
 	elif Input.is_action_pressed("ui_down"):
 		input_pressed = true
 		velocity.y = 1
 		velocity.x = 0
-		newTargetPosition.y = lastPositionOnGrid.y + grid_size
-		newTargetPosition.x = lastPositionOnGrid.x
+		newTargetPosition.y = targetPosition.y + grid_size
+		newTargetPosition.x = targetPosition.x
 		direction = "down"
 	elif Input.is_action_pressed("ui_up"):
 		input_pressed = true
 		velocity.y = -1
 		velocity.x = 0
-		newTargetPosition.y = lastPositionOnGrid.y - grid_size
-		newTargetPosition.x = lastPositionOnGrid.x
+		newTargetPosition.y = targetPosition.y - grid_size
+		newTargetPosition.x = targetPosition.x
 		direction = "up"
-	else:
-		input_pressed = false
 
 	if (currentPosition == targetPosition):
 		lastPositionOnGrid.x = targetPosition.x
@@ -63,7 +60,6 @@ func _process(delta):
 			targetPosition.y = newTargetPosition.y
 			currentVelocity.x = velocity.x
 			currentVelocity.y = velocity.y
-
 		else:
 			currentVelocity.x = 0
 			currentVelocity.y = 0
