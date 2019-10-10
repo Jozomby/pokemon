@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://BattleInterface.gd" type="Script" id=1]
+[ext_resource path="res://essentials-master/Graphics/Pictures/Battle/overlay_fight.png" type="Texture" id=2]
+[ext_resource path="res://essentials-master/Graphics/Pictures/Battle/cursor_fight.png" type="Texture" id=3]
+[ext_resource path="res://standard18font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://essentials-master/Graphics/Pictures/types.png" type="Texture" id=5]
+
+[node name="BattleInterface" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="CommandBar" type="Sprite" parent="."]
+position = Vector2( 256, 336 )
+texture = ExtResource( 2 )
+
+[node name="AttackTypeOverlay1" type="Sprite" parent="."]
+position = Vector2( 100, 316 )
+texture = ExtResource( 3 )
+vframes = 19
+hframes = 2
+
+[node name="AttackTypeOverlay2" type="Sprite" parent="."]
+position = Vector2( 290, 316 )
+texture = ExtResource( 3 )
+vframes = 19
+hframes = 2
+
+[node name="AttackTypeOverlay3" type="Sprite" parent="."]
+position = Vector2( 100, 360 )
+texture = ExtResource( 3 )
+vframes = 19
+hframes = 2
+
+[node name="AttackTypeOverlay4" type="Sprite" parent="."]
+position = Vector2( 290, 360 )
+texture = ExtResource( 3 )
+vframes = 19
+hframes = 2
+
+[node name="AttackLabel1" type="Label" parent="."]
+margin_left = 48.1111
+margin_top = 308.444
+margin_right = 154.111
+margin_bottom = 322.444
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="AttackLabel2" type="Label" parent="."]
+margin_left = 237.889
+margin_top = 308.444
+margin_right = 343.889
+margin_bottom = 322.444
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="AttackLabel3" type="Label" parent="."]
+margin_left = 47.6667
+margin_top = 352.444
+margin_right = 153.667
+margin_bottom = 366.444
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="AttackLabel4" type="Label" parent="."]
+margin_left = 238.333
+margin_top = 352.889
+margin_right = 344.333
+margin_bottom = 366.889
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="SelectedType" type="Sprite" parent="."]
+position = Vector2( 448.444, 321.778 )
+texture = ExtResource( 5 )
+vframes = 19
+
+[node name="PPLabel" type="Label" parent="."]
+margin_left = 408.333
+margin_top = 346.556
+margin_right = 432.333
+margin_bottom = 363.556
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PP:"
+
+[node name="CurrentPP" type="Label" parent="."]
+margin_left = 434.556
+margin_top = 347.111
+margin_right = 454.556
+margin_bottom = 364.111
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 2
+
+[node name="PPSeperator" type="Label" parent="."]
+margin_left = 457.333
+margin_top = 345.667
+margin_right = 465.333
+margin_bottom = 362.667
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+
+[node name="MaxPP" type="Label" parent="."]
+margin_left = 466.556
+margin_top = 346.556
+margin_right = 490.556
+margin_bottom = 363.556
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -1,26 +1,10 @@
 extends Node2D
 signal map_transition
+var Utils = preload("utils.gd")
+var AttackData = preload("attack_data.gd")
 
-export var active_pokemon = {
-	"id": 1,
-	"name": "Bulbasaur",
-	"gender": "male",
-	"max_hp": 32,
-	"current_hp": 29,
-	"level": 8,
-	"experience_needed": 120,
-	"experience_since_last_level": 90,
-	"shiny": true
-}
-export var opposing_pokemon = {
-	"id": 16,
-	"name": "Pidgey",
-	"gender": "female",
-	"max_hp": 16,
-	"current_hp": 16,
-	"level": 4,
-	"shiny": false
-}
+export var active_pokemon = {}
+export var opposing_pokemon = {}
 
 export var return_map = "Route1"
 export var return_position = Vector2(0,0)
@@ -30,8 +14,19 @@ var base_active_hp_bar_position
 var base_opposing_hp_bar_position
 var base_experience_bar_position
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	active_pokemon = Utils.generatePokemon({"id": 1, "level": 8})
+	active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
+	active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
+	active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
+	active_pokemon["experience_since_last_level"] = 24
+	active_pokemon["experience_needed"] = 96
+	$BattleInterface.active_pokemon = active_pokemon
+	if !opposing_pokemon.has("id"):
+		opposing_pokemon = Utils.generatePokemon({"id": 25, "level": 4})
+		opposing_pokemon["current_hp"] = opposing_pokemon["stats"]["hp"]
+		opposing_pokemon["max_hp"] = opposing_pokemon["stats"]["hp"]
+		opposing_pokemon["attacks"] = Utils.fillOutAttacks(opposing_pokemon["attacks"])
 	base_active_hp_bar_position = $CanvasLayer/ActiveHpBar.position
 	base_opposing_hp_bar_position = $CanvasLayer/OpposingHpBar.position
 	base_experience_bar_position = $CanvasLayer/ExperienceBar.position
@@ -67,6 +62,7 @@ func _draw():
 	$CanvasLayer/ActiveLevel.text = str(active_pokemon["level"])
 	$CanvasLayer/OpposingLevel.text = str(opposing_pokemon["level"])
 	$CanvasLayer/MaxHp.text = str(active_pokemon["max_hp"])
+	
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

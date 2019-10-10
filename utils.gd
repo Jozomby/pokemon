@@ -48,7 +48,7 @@ static func generatePokemonGender(gender_rate):
 			return "female"
 		else:
 			return "male"
-	elif gender_rate == "FemaleOneEigth":
+	elif gender_rate == "FemaleOneEighth":
 		if gender_rand < 13:
 			return "female"
 		else:
@@ -110,12 +110,12 @@ static func generatePokemon(pokemon):
 	var ability = generateAbility(pokedata["Abilities"])
 	var attacks = pokemon["attacks"] if pokemon.has("attacks") else generateAttacks(pokedata["Moves"], level)
 	var ivs = {
-		"hp": randi()%100,
-		"attack": randi()%100,
-		"defense": randi()%100,
-		"special_attack": randi()%100,
-		"special_defense": randi()%100,
-		"speed": randi()%100
+		"hp": randi()%30 + 1,
+		"attack": randi()%30 + 1,
+		"defense": randi()%30 + 1,
+		"special_attack": randi()%30 + 1,
+		"special_defense": randi()%30 + 1,
+		"speed": randi()%30 + 1
 	}
 	var evs = {
 		"hp": 0,
@@ -140,4 +140,15 @@ static func generatePokemon(pokemon):
 		"stats": stats
 	}
 	return generatedPokemon
+	
+static func fillOutAttacks(attack_names):
+	var AttackData = preload("attack_data.gd")
+	var attacks = []
+	for attack in attack_names:
+		var filled_out_attack = AttackData.getAttack(attack)
+		filled_out_attack["disabled"] = false
+		filled_out_attack["max_pp"] = filled_out_attack["pp"]
+		filled_out_attack["current_pp"] = filled_out_attack["pp"]
+		attacks.append(filled_out_attack)
+	return attacks
 	
