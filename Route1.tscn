@@ -25,7 +25,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-file = "res://essentials-master/Audio/BGM/Poke Mart.mid"
+file = "res://essentials-master/Audio/BGM/Poke Center.mid"
 playing = true
 loop = true
 load_all_voices_from_soundfont = true
