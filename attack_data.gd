@@ -1,5 +1,103 @@
 static func getAttack(name):
 	var attacks = {
+		"STRINGSHOT": {
+			"id": 20,
+			"internal_name": "STRINGSHOT",
+			"name": "String Shot",
+			"power": 0,
+			"type": "BUG",
+			"kind": "Status",
+			"accuracy":95,
+			"pp": 40,
+			"contact": false,
+			"target": "ALL_ADJACENT_FOES",
+			"effects": [
+				{
+					"type": "STAT",
+					"stat": "speed",
+					"direction": "down",
+					"num_stages": 1,
+					"target": "opponent"
+				}
+			],
+			"description": "The foe is bound with silk blown from the user's mouth. This silk reduces the target's Speed."
+		},
+		"THUNDERSHOCK": {
+			"id": 79,
+			"internal_name": "THUNDERSHOCK",
+			"name": "Thunder Shock",
+			"power": 40,
+			"type": "ELECTRIC",
+			"kind": "Special",
+			"accuracy": 100,
+			"pp": 30,
+			"contact": false,
+			"target": "SINGLE_ADJACENT",
+			"effects": [
+				{
+					"type": "STATUS",
+					"status": "PARALYZE",
+					"rate": 10,
+					"target": "opponent"
+				}
+			],
+			"description": "A jolt of electricity is hurled at the foe to inflict damage. It may also leave the target with paralysis."
+		},
+		"VINEWHIP": {
+			"id": 208,
+			"internal_name": "VINEWHIP",
+			"name": "Vine Whip",
+			"power": 35,
+			"type": "GRASS",
+			"kind": "Physical",
+			"accuracy": 100,
+			"pp": 15,
+			"contact": true,
+			"target": "SINGLE_ADJACENT",
+			"effects": [],
+			"description": "The target is struck with slender, whiplike vines to inflict damage."
+		},
+		"LEECHSEED": {
+			"id": 217,
+			"internal_name": "LEECHSEED",
+			"name": "Leech Seed",
+			"power": 0,
+			"type": "GRASS",
+			"kind": "Status",
+			"accuracy": 90,
+			"pp": 10,
+			"contact": false,
+			"target": "SINGLE_ADJACENT",
+			"effects": [
+				{
+					"type": "SEEDED",
+					"target": "opponent"
+				}
+			],
+			"description": "A seed is planted on the target. It steals some HP from the target every turn."
+		},
+		"SANDATTACK": {
+			"id": 238,
+			"internal_name": "SANDATTACK",
+			"name": "Sand Attack",
+			"power": 0,
+			"type": "GROUND",
+			"kind": "Status",
+			"accuracy": 100,
+			"pp": 15,
+			"contact": false,
+			"target": "SINGLE_ADJACENT",
+			"effects": [
+				{
+					"type": "STAT",
+					"stat": "accuracy",
+					"direction": "down",
+					"num_stages": 1,
+					"target": "opponent"
+				}
+			],
+			"description": "Sand is hurled in the target's face, reducing its accuracy."
+		},
 		"TACKLE": {
 			"id": 303,
 			"internal_name": "TACKLE",
@@ -36,45 +134,27 @@ static func getAttack(name):
 			],
 			"description": "The user growls in an endearing way, making the foe less wary. The foe's Attack stat is lowered."
 		},
-		"LEECHSEED": {
-			"id": 217,
-			"internal_name": "LEECHSEED",
-			"name": "Leech Seed",
+		"TAILWHIP": {
+			"id": 419,
+			"internal_name": "TAILWHIP",
+			"name": "Tail Whip",
 			"power": 0,
-			"type": "GRASS",
+			"type": "NORMAL",
 			"kind": "Status",
-			"accuracy": 90,
-			"pp": 10,
-			"contact": false,
-			"target": "SINGLE_ADJACENT",
-			"effects": [
-				{
-					"type": "SEEDED",
-					"target": "opponent"
-				}
-			],
-			"description": "A seed is planted on the target. It steals some HP from the target every turn."
-		},
-		"THUNDERSHOCK": {
-			"id": 79,
-			"internal_name": "THUNDERSHOCK",
-			"name": "Thunder Shock",
-			"power": 40,
-			"type": "ELECTRIC",
-			"kind": "Special",
 			"accuracy": 100,
 			"pp": 30,
 			"contact": false,
-			"target": "SINGLE_ADJACENT",
+			"target": "ALL_ADJACENT_FOES",
 			"effects": [
 				{
-					"type": "STATUS",
-					"status": "PARALYZE",
-					"rate": 10,
+					"type": "STAT",
+					"stat": "defense",
+					"direction": "down",
+					"num_stages": 1,
 					"target": "opponent"
 				}
 			],
-			"description": "A jolt of electricity is hurled at the foe to inflict damage. It may also leave the target with paralysis."
+			"description": "The user wags its tail cutely, making opposing Pokémon less wary and lowering their Defense stat."
 		}
 	}
 	return attacks[name]

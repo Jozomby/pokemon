@@ -220,6 +220,35 @@ static func statModToMultiplier(stat_mod):
 	elif stat_mod == 6:
 		return 8/2
 
+static func accuracyModToMultiplier(mod):
+	var denom = float(100)
+	if mod == -6:
+		return 33/denom
+	elif mod == -5:
+		return 36/denom
+	elif mod == -4:
+		return 43/denom
+	elif mod == -3:
+		return 50/denom
+	elif mod == -2:
+		return 60/denom
+	elif mod == -1:
+		return 75/denom
+	elif mod == 0:
+		return 100/denom
+	elif mod == 1:
+		return 133/denom
+	elif mod == 2:
+		return 166/denom
+	elif mod == 3:
+		return 200/denom
+	elif mod == 4:
+		return 233/denom
+	elif mod == 5:
+		return 266/denom
+	elif mod == 6:
+		return 300/denom
+
 static func getTypeMatchup(attacking_type, defending_type):
 	if attacking_type == "NORMAL":
 		if defending_type == "ROCK":

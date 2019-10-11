@@ -27,7 +27,7 @@ func _ready():
 	active_pokemon = Utils.generatePokemon({"id": 1, "level": 8})
 	active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
 	active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
-	active_pokemon["stat_mods"] = {"attack": 0, "defense": 0, "special_attack": 0, "special_defense": 0, "speed": 0}
+	active_pokemon["stat_mods"] = {"attack": 0, "defense": 0, "special_attack": 0, "special_defense": 0, "speed": 0, "accuracy": 0}
 	active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
 	active_pokemon["experience_since_last_level"] = 2
 	active_pokemon["experience"] = active_pokemon["experience"] + active_pokemon["experience_since_last_level"]
@@ -42,7 +42,7 @@ func _ready():
 	opposing_pokemon["current_hp"] = opposing_pokemon["stats"]["hp"]
 	opposing_pokemon["max_hp"] = opposing_pokemon["stats"]["hp"]
 	opposing_pokemon["attacks"] = Utils.fillOutAttacks(opposing_pokemon["attacks"])
-	opposing_pokemon["stat_mods"] = {"attack": 0, "defense": 0, "special_attack": 0, "special_defense": 0, "speed": 0}
+	opposing_pokemon["stat_mods"] = {"attack": 0, "defense": 0, "special_attack": 0, "special_defense": 0, "speed": 0, "accuracy": 0}
 	opposing_pokemon["status"] = ""
 	opposing_pokemon["temp_status"] = []
 	messages.append("A wild " + opposing_pokemon["name"] + " appeared!")
@@ -136,7 +136,8 @@ func handle_message_acknowledged():
 
 func handle_attack_chosen(attack_index):
 	var active_attack = active_pokemon["attacks"][attack_index]
-	var opposing_attack = opposing_pokemon["attacks"][1]
+	var opposing_attack_index = randi()%opposing_pokemon["attacks"].size()
+	var opposing_attack = opposing_pokemon["attacks"][opposing_attack_index]
 	var going_first = "active" if active_pokemon["stats"]["speed"] * Utils.statModToMultiplier(active_pokemon["stat_mods"]["speed"]) > opposing_pokemon["stats"]["speed"] * Utils.statModToMultiplier(opposing_pokemon["stat_mods"]["speed"]) else ( "opposing" if opposing_pokemon["stats"]["speed"] * Utils.statModToMultiplier(opposing_pokemon["stat_mods"]["speed"]) > active_pokemon["stats"]["speed"] * Utils.statModToMultiplier(active_pokemon["stat_mods"]["speed"]) else ("active" if randi()%2 == 0 else "opposing"))
 	attacks.append({
 		"attacker": active_pokemon if going_first == "active" else opposing_pokemon,
@@ -184,14 +185,17 @@ func gain_experience(receiver, provider):
 	finished = true
 
 func level_up(pokemon):
+	#TODO: update stats
 	messages.append(pokemon["name"] + " grew to level " + str(pokemon["level"] + 1) + "!")
 	pokemon["level"] = pokemon["level"] + 1
 	update()
 
 func make_attack(attacker, target, attack):
+	#TODO: implement PP
 	messages.append(attacker["name"] + " used " + attack["name"] + ".")
 	var accuracy_check = randi()%100
-	if accuracy_check > attack["accuracy"]:
+	var accuracy_threshold = attack["accuracy"] * Utils.accuracyModToMultiplier(attacker["stat_mods"]["accuracy"])
+	if accuracy_check > accuracy_threshold:
 		messages.append("The attack missed.")
 	else:
 		if attack["power"] > 0:
@@ -241,13 +245,21 @@ func do_effect(attacker, target, effect):
 			else:
 				status_target["stat_mods"]["special_defense"] = new_stat_mod
 		elif effect["stat"] == "speed":
-			var new_stat_mod  = status_target["stat_mods"]["speed"] + status_change
+			var new_stat_mod = status_target["stat_mods"]["speed"] + status_change
 			if new_stat_mod > 6:
 				too_high = true
 			elif new_stat_mod < -6:
 				too_low = true
 			else:
 				status_target["stat_mods"]["speed"] = new_stat_mod
+		elif effect["stat"] == "accuracy":
+			var new_stat_mod = status_target["stat_mods"]["accuracy"] + status_change
+			if new_stat_mod > 6:
+				too_high = true
+			elif new_stat_mod < -6:
+				too_low = true
+			else:
+				status_target["stat_mods"]["accuracy"] = new_stat_mod
 		var change_direction_message = "increased" if effect["direction"] == "up" else "decreased"
 		var change_amount_message = "" if effect["num_stages"] == 1 else (" greatly" if effect["num_stages"] == 2 else " drastically")
 		if too_high:
@@ -257,6 +269,7 @@ func do_effect(attacker, target, effect):
 		else:
 			messages.append(status_target["name"] + "'s " + effect["stat"] + " " + change_direction_message + change_amount_message + ".")
 	elif effect["type"] == "STATUS":
+		#TODO: Implement Status
 		var status_chance_rand = randi()%100
 		if status_chance_rand < effect["rate"]:
 			messages.append(target["name"] + " was inflicted with " + effect["status"] + ".")

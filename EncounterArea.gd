@@ -18,6 +18,5 @@ func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		#randomize()
 		var encounter_roll = randi()%100
-		# Encounter rate is temporarily set to 15 rather than 7 for testing purposes
-		if encounter_roll < 15:
+		if encounter_roll < 7:
 			emit_signal("encounter")
