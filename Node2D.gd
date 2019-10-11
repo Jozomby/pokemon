@@ -178,6 +178,13 @@ func gain_experience(receiver, provider):
 	messages.append(receiver["name"] + " gained " + str(experience) + " exp!")
 	receiver["experience"] = receiver["experience"] + experience
 	receiver["experience_since_last_level"] = receiver["experience_since_last_level"] + experience
+	#TODO Cap EVS
+	receiver["evs"]["hp"] = receiver["evs"]["hp"] + provider["effort_points"][0]
+	receiver["evs"]["attack"] = receiver["evs"]["attack"] + provider["effort_points"][1]
+	receiver["evs"]["defense"] = receiver["evs"]["defense"] + provider["effort_points"][2]
+	receiver["evs"]["special_attack"] = receiver["evs"]["special_attack"] + provider["effort_points"][3]
+	receiver["evs"]["special_defense"] = receiver["evs"]["special_defense"] + provider["effort_points"][4]
+	receiver["evs"]["speed"] = receiver["evs"]["speed"] + provider["effort_points"][5]
 	if receiver["experience_since_last_level"] >= receiver["experience_needed"]:
 		var overflowed_experience = abs(float(receiver["experience_needed"]))
 		receiver["experience_since_last_level"] = overflowed_experience
@@ -186,9 +193,18 @@ func gain_experience(receiver, provider):
 	finished = true
 
 func level_up(pokemon):
-	#TODO: update stats
+	#TODO: update moves
+	#TODO: display stat changes
 	messages.append(pokemon["name"] + " grew to level " + str(pokemon["level"] + 1) + "!")
 	pokemon["level"] = pokemon["level"] + 1
+	var old_stats = pokemon["stats"]
+	pokemon["stats"] = Utils.generateStats(pokemon["base_stats"], pokemon["level"], pokemon["ivs"], pokemon["evs"], pokemon["nature"])
+	print("HP increase: " + str(pokemon["stats"]["hp"] - old_stats["hp"]))
+	print("Attack increase: " + str(pokemon["stats"]["attack"] - old_stats["attack"]))
+	print("Defense increase: " + str(pokemon["stats"]["defense"] - old_stats["defense"]))
+	print("Special Attack increase: " + str(pokemon["stats"]["special_attack"] - old_stats["special_attack"]))
+	print("Special Defense increase: " + str(pokemon["stats"]["special_defense"] - old_stats["special_defense"]))
+	print("Speed increase: " + str(pokemon["stats"]["speed"] - old_stats["speed"]))
 	update()
 
 func make_attack(attacker, target, attack):

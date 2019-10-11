@@ -28,7 +28,7 @@ func initialize_party():
 	active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
 	active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
 	active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
-	active_pokemon["experience_since_last_level"] = 2
+	active_pokemon["experience_since_last_level"] = 40
 	active_pokemon["experience"] = active_pokemon["experience"] + active_pokemon["experience_since_last_level"]
 	active_pokemon["experience_needed"] = Utils.calculateExperience(active_pokemon["growth_rate"], active_pokemon["level"]+1) - active_pokemon["experience"]
 	active_pokemon["status"] = ""

@@ -166,7 +166,9 @@ static func generatePokemon(pokemon):
 		"stats": stats,
 		"growth_rate": pokedata["GrowthRate"],
 		"base_exp": pokedata["BaseEXP"],
-		"experience": experience
+		"experience": experience,
+		"effort_points": pokedata["EffortPoints"],
+		"base_stats": pokedata["BaseStats"]
 	}
 	if pokedata.has("Type1"):
 		generatedPokemon["type1"] = pokedata["Type1"]
