@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Route1.gd" type="Script" id=1]
+[ext_resource path="res://Lighthouse.gd" type="Script" id=1]
 [ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=2]
 [ext_resource path="res://addons/midi/icon.png" type="Texture" id=3]
 [ext_resource path="res://Building.tres" type="TileSet" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NPC.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.254, 27.7634 )
@@ -63,4 +64,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveOfWondersEntrance"]
 shape = SubResource( 1 )
+
+[node name="NPC" parent="." instance=ExtResource( 6 )]
+position = Vector2( 417.167, 111.689 )
 [connection signal="body_entered" from="CaveOfWondersEntrance" to="." method="_on_CaveOfWondersEntrance_body_entered"]
