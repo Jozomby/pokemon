@@ -30,7 +30,8 @@ static func getAttack(name):
 					"type": "STAT",
 					"stat": "attack",
 					"direction": "down",
-					"num_stages": 1
+					"num_stages": 1,
+					"target": "opponent"
 				}
 			],
 			"description": "The user growls in an endearing way, making the foe less wary. The foe's Attack stat is lowered."
@@ -48,7 +49,8 @@ static func getAttack(name):
 			"target": "SINGLE_ADJACENT",
 			"effects": [
 				{
-					"type": "SEEDED"
+					"type": "SEEDED",
+					"target": "opponent"
 				}
 			],
 			"description": "A seed is planted on the target. It steals some HP from the target every turn."
@@ -58,8 +60,8 @@ static func getAttack(name):
 			"internal_name": "THUNDERSHOCK",
 			"name": "Thunder Shock",
 			"power": 40,
-			"type": "ELECTRIC,",
-			"kind": "Special,",
+			"type": "ELECTRIC",
+			"kind": "Special",
 			"accuracy": 100,
 			"pp": 30,
 			"contact": false,
@@ -68,7 +70,8 @@ static func getAttack(name):
 				{
 					"type": "STATUS",
 					"status": "PARALYZE",
-					"rate": 10
+					"rate": 10,
+					"target": "opponent"
 				}
 			],
 			"description": "A jolt of electricity is hurled at the foe to inflict damage. It may also leave the target with paralysis."

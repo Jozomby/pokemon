@@ -1,4 +1,5 @@
 extends CanvasLayer
+signal attack_chosen
 
 var AttackData = preload("attack_data.gd")
 
@@ -92,7 +93,8 @@ func _ready():
 
 func _process(delta):
 	var new_selected_attack = selected_attack
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
+		emit_signal("attack_chosen", selected_attack)
 		pass
 	elif Input.is_action_pressed("ui_down"):
 		if selected_attack == 0:

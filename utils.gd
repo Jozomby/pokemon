@@ -97,6 +97,31 @@ static func generateStats(base_stats, level, ivs, evs, nature):
 		"speed": generateStat(base_stats[5], level, ivs["speed"], evs["speed"], speed_modifier),
 	}
 	
+static func calculateExperience(growth_rate, level):
+	if growth_rate == "Parabolic":
+		return floor(((float(6)/5)*level*level*level) - (15*level*level) + (100 * level) - 140)
+	elif growth_rate == "Medium":
+		return floor(level*level*level)
+	elif growth_rate == "Fast":
+		return floor(float(4*level*level*level) / 5)
+	elif growth_rate == "Slow":
+		return floor(float(5*level*level*level)/4)
+	elif growth_rate == "Erratic":
+		if level <= 50:
+			return floor(float((level*level*level)*(100-level))/50)
+		elif level <= 68:
+			return floor(float((level*level*level)*(150-level))/100)
+		elif level <= 98:
+			return floor(((level*level*level)*(float(1911-(10*level))/3))/500)
+		else:
+			return floor(float((level*level*level)*(160-level))/100)
+	elif growth_rate == "Fluctuating":
+		if level <= 15:
+			return floor((level*level*level)*(((float(level+1)/3)+24)/50))
+		elif level <= 36:
+			return floor((level*level*level)*(float(level+14)/50))
+		else:
+			return floor((level*level*level)*(float((level/2)+32)/50))
 
 static func generatePokemon(pokemon):
 	var PokemonData = preload("pokemon_data.gd")
@@ -109,13 +134,14 @@ static func generatePokemon(pokemon):
 	var nature = generateNature()
 	var ability = generateAbility(pokedata["Abilities"])
 	var attacks = pokemon["attacks"] if pokemon.has("attacks") else generateAttacks(pokedata["Moves"], level)
+	var experience = calculateExperience(pokedata["GrowthRate"], level)
 	var ivs = {
-		"hp": randi()%30 + 1,
-		"attack": randi()%30 + 1,
-		"defense": randi()%30 + 1,
-		"special_attack": randi()%30 + 1,
-		"special_defense": randi()%30 + 1,
-		"speed": randi()%30 + 1
+		"hp": randi()%31 + 1,
+		"attack": randi()%31 + 1,
+		"defense": randi()%31 + 1,
+		"special_attack": randi()%31 + 1,
+		"special_defense": randi()%31 + 1,
+		"speed": randi()%31 + 1
 	}
 	var evs = {
 		"hp": 0,
@@ -137,8 +163,15 @@ static func generatePokemon(pokemon):
 		"attacks": attacks,
 		"ivs": ivs,
 		"evs": evs,
-		"stats": stats
+		"stats": stats,
+		"growth_rate": pokedata["GrowthRate"],
+		"base_exp": pokedata["BaseEXP"],
+		"experience": experience
 	}
+	if pokedata.has("Type1"):
+		generatedPokemon["type1"] = pokedata["Type1"]
+	if pokedata.has("Type2"):
+		generatedPokemon["type2"] = pokedata["Type2"]
 	return generatedPokemon
 	
 static func fillOutAttacks(attack_names):
@@ -152,3 +185,315 @@ static func fillOutAttacks(attack_names):
 		attacks.append(filled_out_attack)
 	return attacks
 	
+static func getTypeEffectiveness(attacking_types, defending_types):
+	var matchup1 = getTypeMatchup(attacking_types[0], defending_types[0])
+	var matchup2 = getTypeMatchup(attacking_types[0], defending_types[1]) if defending_types.size() > 1 else 1
+	var matchup3 = getTypeMatchup(attacking_types[1], defending_types[0]) if attacking_types.size() > 1 else 1
+	var matchup4 = getTypeMatchup(attacking_types[1], defending_types[1]) if (attacking_types.size() > 1 && defending_types.size() > 1) else 1
+	return matchup1 * matchup2 * matchup3 * matchup4
+
+static func statModToMultiplier(stat_mod):
+	if stat_mod == -6:
+		return 2/8
+	elif stat_mod == -5:
+		return 2/7
+	elif stat_mod == -4:
+		return 2/6
+	elif stat_mod == -3:
+		return 2/5
+	elif stat_mod == -2:
+		return 2/4
+	elif stat_mod == -1:
+		return 2/3
+	elif stat_mod == 0:
+		return 2/2
+	elif stat_mod == 1:
+		return 3/2
+	elif stat_mod == 2:
+		return 4/2
+	elif stat_mod == 3:
+		return 5/2
+	elif stat_mod == 4:
+		return 6/2
+	elif stat_mod == 5:
+		return 7/2
+	elif stat_mod == 6:
+		return 8/2
+
+static func getTypeMatchup(attacking_type, defending_type):
+	if attacking_type == "NORMAL":
+		if defending_type == "ROCK":
+			return 0.5
+		elif defending_type == "GHOST":
+			return 0
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "FIRE":
+		if defending_type == "FIRE":
+			return 0.5
+		elif defending_type == "WATER":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 2
+		elif defending_type == "ICE":
+			return 2
+		elif defending_type == "BUG":
+			return 2
+		elif defending_type == "ROCK":
+			return 0.5
+		elif defending_type == "DRAGON":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 2
+		else:
+			return 1
+	elif attacking_type == "WATER":
+		if defending_type == "FIRE":
+			return 2
+		elif defending_type == "WATER":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 2
+		elif defending_type == "ROCK":
+			return 2
+		elif defending_type == "DRAGON":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "ELECTRIC":
+		if defending_type == "WATER":
+			return 2
+		elif defending_type == "ELECTRIC":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 0
+		elif defending_type == "FLYING":
+			return 2
+		elif defending_type == "DRAGON":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "GRASS":
+		if defending_type == "FIRE":
+			return 0.5
+		elif defending_type == "WATER":
+			return 2
+		elif defending_type == "GRASS":
+			return 0.5
+		elif defending_type == "POISON":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 2
+		elif defending_type == "FLYING":
+			return 0.5
+		elif defending_type == "BUG":
+			return 0.5
+		elif defending_type == "ROCK":
+			return 2
+		elif defending_type == "DRAGON":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "ICE":
+		if defending_type == "FIRE":
+			return 0.5
+		elif defending_type == "WATER":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 2
+		elif defending_type == "ICE":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 2
+		elif defending_type == "FLYING":
+			return 2
+		elif defending_type == "DRAGON":
+			return 2
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "FIGHTING":
+		if defending_type == "NORMAL":
+			return 2
+		elif defending_type == "ICE":
+			return 2
+		elif defending_type == "POISON":
+			return 0.5
+		elif defending_type == "FLYING":
+			return 0.5
+		elif defending_type == "PSYCHIC":
+			return 0.5
+		elif defending_type == "BUG":
+			return 0.5
+		elif defending_type == "ROCK":
+			return 2
+		elif defending_type == "GHOST":
+			return 0
+		elif defending_type == "DARK":
+			return 2
+		elif defending_type == "STEEL":
+			return 2
+		else:
+			return 1
+	elif attacking_type == "POISON":
+		if defending_type == "GRASS":
+			return 2
+		elif defending_type == "POISON":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 0.5
+		elif defending_type == "ROCK":
+			return 0.5
+		elif defending_type == "GHOST":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 0
+		else:
+			return 1
+	elif attacking_type == "GROUND":
+		if defending_type == "FIRE":
+			return 2
+		elif defending_type == "ELECTRIC":
+			return 2
+		elif defending_type == "GRASS":
+			return 0.5
+		elif defending_type == "POISON":
+			return 2
+		elif defending_type == "FLYING":
+			return 0
+		elif defending_type == "BUG":
+			return 0.5
+		elif defending_type == "ROCK":
+			return 2
+		elif defending_type == "STEEL":
+			return 2
+		else:
+			return 1
+	elif attacking_type == "FLYING":
+		if defending_type == "ELECTRIC":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 2
+		elif defending_type == "FIGHTING":
+			return 2
+		elif defending_type == "BUG":
+			return 2
+		elif defending_type == "ROCK":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "PSYCHIC":
+		if defending_type == "FIGHTING":
+			return 2
+		elif defending_type == "POISON":
+			return 2
+		elif defending_type == "PSYCHIC":
+			return 0.5
+		elif defending_type == "DARK":
+			return 0
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "BUG":
+		if defending_type == "FIRE":
+			return 0.5
+		elif defending_type == "GRASS":
+			return 2
+		elif defending_type == "FIGHTING":
+			return 0.5
+		elif defending_type == "POSION":
+			return 0.5
+		elif defending_type == "FLYING":
+			return 0.5
+		elif defending_type == "PSYCHIC":
+			return 2
+		elif defending_type == "GHOST":
+			return 0.5
+		elif defending_type == "DARK":
+			return 2
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "ROCK":
+		if defending_type == "FIRE":
+			return 2
+		elif defending_type == "ICE":
+			return 2
+		elif defending_type == "FIGHTING":
+			return 0.5
+		elif defending_type == "GROUND":
+			return 0.5
+		elif defending_type == "FLYING":
+			return 2
+		elif defending_type == "BUG":
+			return 2
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "GHOST":
+		if defending_type == "NORMAL":
+			return 0
+		elif defending_type == "PSYCHIC":
+			return 2
+		elif defending_type == "GHOST":
+			return 2
+		elif defending_type == "DARK":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "DRAGON":
+		if defending_type == "DRAGON":
+			return 2
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "DARK":
+		if defending_type == "FIGHTING":
+			return 0.5
+		elif defending_type == "PSYCHIC":
+			return 2
+		elif defending_type == "GHOST":
+			return 2
+		elif defending_type == "DARK":
+			return 0.5
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	elif attacking_type == "STEEL":
+		if defending_type == "FIRE":
+			return 0.5
+		elif defending_type == "WATER":
+			return 0.5
+		elif defending_type == "ELECTRIC":
+			return 0.5
+		elif defending_type == "ICE":
+			return 2
+		elif defending_type == "ROCK":
+			return 2
+		elif defending_type == "STEEL":
+			return 0.5
+		else:
+			return 1
+	else:
+		print("UNKNOWN TYPE")
+		print(attacking_type)
+		print(defending_type)
+		return 1

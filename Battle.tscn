@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://essentials-master/Graphics/Pictures/Battle/databox_normal.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://essentials-master/Graphics/Pictures/Battle/overlay_hp.png" type="Texture" id=6]
 [ext_resource path="res://essentials-master/Graphics/Pictures/Battle/overlay_exp.png" type="Texture" id=7]
 [ext_resource path="res://BattleInterface.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BattleMessage.tscn" type="PackedScene" id=9]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 1 )
@@ -107,3 +108,5 @@ custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="BattleInterface" parent="." instance=ExtResource( 8 )]
+
+[node name="BattleMessage" parent="." instance=ExtResource( 9 )]

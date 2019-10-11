@@ -61,8 +61,6 @@ func _handle_begin_encounter(pokemon, return_map, return_position):
 	current_map.queue_free()
 	var encounter = battle.instance()
 	var wild_pokemon = Utils.generatePokemon(pokemon)
-	wild_pokemon.max_hp = wild_pokemon["stats"]["hp"]
-	wild_pokemon.current_hp = wild_pokemon["stats"]["hp"]
 	encounter.active_pokemon = active_pokemon
 	encounter.opposing_pokemon = wild_pokemon
 	encounter.return_map = return_map
