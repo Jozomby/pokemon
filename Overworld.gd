@@ -12,26 +12,8 @@ var map_map = {
 	
 var current_map = null
 
-var active_pokemon = {
-	"id": 1,
-	"name": "Bulbasaur",
-	"gender": "male",
-	"max_hp": 32,
-	"current_hp": 29,
-	"level": 8,
-	"experience_needed": 120,
-	"experience_since_last_level": 90,
-	"shiny": true
-}
-var opposing_pokemon = {
-	"id": 16,
-	"name": "Pidgey",
-	"gender": "female",
-	"max_hp": 16,
-	"current_hp": 16,
-	"level": 4,
-	"shiny": false
-}
+var active_pokemon = {}
+var opposing_pokemon = {}
 
 func _ready():
 	var defaultMap = map_map["Default"].instance()
@@ -39,6 +21,17 @@ func _ready():
 	current_map = defaultMap
 	defaultMap.connect("map_transition", self, "handle_map_transition")
 	defaultMap.connect("begin_encounter", self, "handle_begin_encounter")
+	initialize_party()
+	
+func initialize_party():
+	active_pokemon = Utils.generatePokemon({"id": 1, "level": 8})
+	active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
+	active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
+	active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
+	active_pokemon["experience_since_last_level"] = 2
+	active_pokemon["experience"] = active_pokemon["experience"] + active_pokemon["experience_since_last_level"]
+	active_pokemon["experience_needed"] = Utils.calculateExperience(active_pokemon["growth_rate"], active_pokemon["level"]+1) - active_pokemon["experience"]
+	active_pokemon["status"] = ""
 	
 func handle_map_transition(targetMap, player_position):
 	call_deferred("_handle_map_transition", targetMap, player_position)

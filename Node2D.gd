@@ -24,15 +24,16 @@ func _ready():
 	battle_interface = $BattleInterface
 	battle_message = $BattleMessage
 	remove_child(battle_interface)
-	active_pokemon = Utils.generatePokemon({"id": 1, "level": 8})
-	active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
-	active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
+	if !active_pokemon.has("id"):
+		active_pokemon = Utils.generatePokemon({"id": 1, "level": 8})
+		active_pokemon["current_hp"] = active_pokemon["stats"]["hp"]
+		active_pokemon["max_hp"] = active_pokemon["stats"]["hp"]
+		active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
+		active_pokemon["experience_since_last_level"] = 2
+		active_pokemon["experience"] = active_pokemon["experience"] + active_pokemon["experience_since_last_level"]
+		active_pokemon["experience_needed"] = Utils.calculateExperience(active_pokemon["growth_rate"], active_pokemon["level"]+1) - active_pokemon["experience"]
+		active_pokemon["status"] = ""
 	active_pokemon["stat_mods"] = {"attack": 0, "defense": 0, "special_attack": 0, "special_defense": 0, "speed": 0, "accuracy": 0}
-	active_pokemon["attacks"] = Utils.fillOutAttacks(active_pokemon["attacks"])
-	active_pokemon["experience_since_last_level"] = 2
-	active_pokemon["experience"] = active_pokemon["experience"] + active_pokemon["experience_since_last_level"]
-	active_pokemon["experience_needed"] = Utils.calculateExperience(active_pokemon["growth_rate"], active_pokemon["level"]+1) - active_pokemon["experience"]
-	active_pokemon["status"] = ""
 	active_pokemon["temp_status"] = ""
 	battle_interface.active_pokemon = active_pokemon
 	battle_interface.connect("attack_chosen", self, "handle_attack_chosen")
@@ -310,6 +311,8 @@ func do_damage(attacker, target, attack):
 		messages.append("It was super effective!")
 	var critical_chance = randi()%16
 	var critical = 2 if critical_chance == 13 else 1
+	if (critical == 2):
+		messages.append("A critical hit!")
 	#randomize()
 	var random = float(randi()%16 + 85)/100
 	var damage = floor(((((((2 * attacker["level"]) / 5) + 2) * attack["power"] * (attack_stat / defense_stat)) / 50) + 2) * (type_modifier * critical * random * stab))
